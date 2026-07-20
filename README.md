@@ -148,8 +148,6 @@ OpenRV Build Container
 
 Container 2 is then ready for YOU to build OpenRV.  Please see [Building Open RV](https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html#building-open-rv) documentation.
 
-`docs/openrv-build-example-output.txt`:  Example console output from a successful OpenRV build. Provided as a reference for the general build flow and expected successful completion.
-
 ## Why Docker
 
 *"Why not just use a VM?"*  You can; initially I did:  VMWare, XCP-NG, Hyper-V.  But I wanted to try it out in docker.  VMs have the same advantages, albeit without the extra (not special) sauce.
