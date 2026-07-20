@@ -1,0 +1,27 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      VERSION: "11"
+      USERNAME: "myuser"  # CHANGE THIS before running
+      PASSWORD: "supersecretpassword"  # CHANGE THIS before running
+      CPU_CORES: "6"
+      RAM_SIZE: "24"
+      DISK_SIZE: "80G"
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    volumes:
+      - ./win11:/storage
+      - ./oem:/oem
+      - ../shared:/shared
+    restart: always
+    stop_grace_period: 2m
+

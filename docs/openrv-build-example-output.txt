@@ -1,0 +1,293 @@
+
+=== git clone ===
+
+
+myuser@WIN-KGE66T5S248 MINGW64 ~
+# # Don't forget the --recursive flag!
+git clone --recursive https://github.com/AcademySoftwareFoundation/OpenRV.git
+Cloning into 'OpenRV'...
+  [snip]
+Receiving objects: 100% (16719/16719), 28.89 MiB | 46.01 MiB/s, done.
+Resolving deltas: 100% (11309/11309), done.
+Updating files: 100% (3721/3721), done.
+  [snip]
+Submodule path 'src/lib/files/WFObj': checked out '23568ad5a33b89d36703f6814e56e74b042ddfdf'
+Submodule path 'src/lib/geometry/twkpaint-src': checked out '473f50e7913051f27742caa262bc429c00cc34f8'
+Submodule path 'src/pub': checked out 'b738ce25c560c75ea64effeea8fbfa2fda84c582'
+
+
+=== source rvcmds.sh ===
+
+myuser@WIN-KGE66T5S248 MINGW64 ~
+# cd OpenRV/
+
+myuser@WIN-KGE66T5S248 MINGW64 ~/OpenRV
+# source rvcmds.sh
+Please select the VFX Platform year to build for:
+1) CY2023
+2) CY2024
+3) CY2025
+4) CY2026
+Enter a number: 3
+Using VFX Platform: CY2025
+Using Qt 6.5 installation already set at /c/Qt/6.5.3/msvc2019_64
+Please ensure you have installed any required dependencies from doc/build_system/config_[os]
+
+CMake parameters:
+RV_BUILD_PARALLELISM is 6
+RV_HOME is /home/myuser/OpenRV
+RV_BUILD_DIR is /home/myuser/OpenRV/_build
+RV_INST_DIR is /home/myuser/OpenRV/_install
+CMAKE_GENERATOR is Visual Studio 17 2022
+QT_HOME is /c/Qt/6.5.3/msvc2019_64
+WIN_PERL is c:/Strawberry/perl/bin
+
+To override any of them do unset [name]; export [name]=value; source rvcmds.sh
+
+Use 'rvrelease' (default) or 'rvdebug' to switch between build configurations.
+Call 'rvbootstrap' if its your first time building or after calling rvclean.
+After 'rvbootstrap', use 'rvbuild' or 'rvmk' for incremental builds.
+
+If build fails, use 'rverrsummary' to see error summary or 'rverrors' to view full log.
+
+rel (run rvbootstrap)
+myuser@WIN-KGE66T5S248 MINGW64 ~/OpenRV
+#
+rel (run rvbootstrap)
+
+
+=== rvcfg ===
+
+myuser@WIN-KGE66T5S248 MINGW64 ~/OpenRV
+# rvcfg -DRV_FFMPEG_NON_FREE_DECODERS_TO_ENABLE="prores;hevc;aac;aac_at;aac_fixed;aac_latm;dnxhd"
+Installing pre-commit hooks...
+  Failed to install pre-commit hooks.
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26200.
+-- The CXX compiler identification is MSVC 19.40.33821.0
+-- The C compiler identification is MSVC 19.40.33821.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.40.33807/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.40.33807/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Build type: Release
+PROJECT DIR C:/msys64/home/myuser/OpenRV
+-- Building RV for Microsoft Windows
+-- Compiler cache enabled: sccache (C:/msys64/mingw64/bin/sccache.exe)
+--   Using default sccache directory
+--   Setting default cache size to 10G (override with RV_CCACHE_MAX_SIZE)
+--   Current cache statistics:
+-- Compile requests                      0
+Compile requests executed             0
+Cache hits                            0
+[snip]
+Cache location                  Local disk: "C:\\Users\\myuser\\AppData\\Local\\Mozilla\\sccache\\cache"
+Base directories                (none)
+Use direct/preprocessor mode?   yes
+Version (client)                0.15.0
+Max cache size                       10 GiB
+
+-- Using build branch: main
+-- Using build hash: 679987aa
+-- RV_STAGE_ROOT_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app
+-- RV_STAGE_BIN_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/bin
+-- RV_STAGE_LIB_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/lib
+-- RV_STAGE_INCLUDE_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/include
+-- RV_STAGE_SRC_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/src
+-- RV_STAGE_RESOURCES_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/resources
+-- RV_STAGE_PLUGINS_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns
+-- RV_STAGE_PLUGINS_CONFIGFILES_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/ConfigFiles
+-- RV_STAGE_PLUGINS_IMAGEFORMATS_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/ImageFormats
+-- RV_STAGE_PLUGINS_MOVIEFORMATS_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/MovieFormats
+-- RV_STAGE_PLUGINS_MU_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/Mu
+-- RV_STAGE_PLUGINS_NODES_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/Nodes
+-- RV_STAGE_PLUGINS_OIIO_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/OIIO
+-- RV_STAGE_PLUGINS_OUTPUT_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/Output
+-- RV_STAGE_PLUGINS_MEDIALIBRARY_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/MediaLibrary/
+-- RV_STAGE_PLUGINS_PACKAGES_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/Packages
+-- RV_STAGE_PLUGINS_PROFILES_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/Profiles
+-- RV_STAGE_PLUGINS_PYTHON_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/Python
+-- RV_STAGE_PLUGINS_QT_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/Qt
+-- RV_STAGE_PLUGINS_SUPPORTFILES_DIR: C:/msys64/home/myuser/OpenRV/_build/stage/app/PlugIns/SupportFiles
+-- Updating submodules
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - not found
+-- Found Threads: TRUE
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR)
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR)
+-- Copying Qt into C:/msys64/home/myuser/OpenRV/_build/stage/app
+-- Copying Qt translations files ...
+-- Copying Qt resources files ...
+-- Copying Qt into C:/msys64/home/myuser/OpenRV/_build/stage/app -- DONE
+-- Populating rv_deps_pyside6
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26200.
+-- Configuring done (3.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/msys64/home/myuser/OpenRV/_build/_deps/rv_deps_pyside6-subbuild
+MSBuild version 17.14.51+25f168cee for .NET Framework
+
+  1>Checking Build System
+  1>Creating directories for 'rv_deps_pyside6-populate'
+  Performing download step (download, verify and extract) for 'rv_deps_pyside6-populate'
+  -- Downloading...
+     dst='C:/msys64/home/myuser/OpenRV/_build/_deps/rv_deps_pyside6-subbuild/rv_deps_pyside6-populate-prefix/src/pyside-setup-everywhere-src-6.5.3.zip'
+     timeout='none'
+     inactivity timeout='none'
+  -- Using src='https://mirrors.ocf.berkeley.edu/qt/official_releases/QtForPython/pyside6/PySide6-6.5.3-src/pyside-setup-everywhere-src-6.5.3.zip'
+  [snip]
+  -- Downloading... done
+  -- extracting...
+       src='C:/msys64/home/myuser/OpenRV/_build/_deps/rv_deps_pyside6-subbuild/rv_deps_pyside6-populate-prefix/src/pyside-setup-everywhere-src-6.5.3.zip'
+       dst='C:/msys64/home/myuser/OpenRV/_build/_deps/rv_deps_pyside6-src'
+  [snip]
+  Completed 'rv_deps_pyside6-populate'
+  Building Custom Rule C:/msys64/home/myuser/OpenRV/_build/_deps/rv_deps_pyside6-subbuild/CMakeLists.txt
+-- PyImGui: Testing reduced Windows Release workaround flags
+-- PyImplot: Applying Windows Release workaround flags to prevent MSVC hangs
+-- FFmpeg decoder aac enabled
+-- FFmpeg decoder aac_at enabled
+-- FFmpeg decoder aac_fixed enabled
+-- FFmpeg decoder aac_latm enabled
+-- FFmpeg decoder dnxhd enabled
+-- FFmpeg decoder prores enabled
+-- ERROR Patch file not found, skipping patch for RV_DEPS_OPENEXR:
+CMake Warning at cmake/dependencies/bmd.cmake:17 (MESSAGE):
+  Blackmagic Decklink SDK path not specified, disabling Blackmagic output
+  plugin.
+
+  Download the Blackmagic Desktop Video SDK to add Blackmagic output
+  capability to Open RV (optional):
+  https://www.blackmagicdesign.com/desktopvideo_sdk.  Then set
+  RV_DEPS_BMD_DECKLINK_SDK_ZIP_PATH to the path of the downloaded zip file on
+  the rvcfg line.
+
+  Example:
+
+  rvcfg
+  -DRV_DEPS_BMD_DECKLINK_SDK_ZIP_PATH='<downloads_path>/Blackmagic_DeckLink_SDK_14.1.zip'
+Call Stack (most recent call first):
+  cmake/dependencies/CMakeLists.txt:135 (INCLUDE)
+
+
+CMake Warning at cmake/dependencies/prores.cmake:20 (MESSAGE):
+  ProRes SDK path not specified, disabling ProRes support.
+
+  Contact Apple at prores@apple.com to obtain the free SDK.  Then set
+  RV_DEPS_APPLE_PRORES_SDK_ZIP_PATH to the path of the received zip file on
+  the rvcfg line.
+
+  Example:
+
+  rvcfg
+  -DRV_DEPS_APPLE_PRORES_SDK_ZIP_PATH='<downloads_path>/ProResDecoder_Linux_x86_64-15B54.zip'
+Call Stack (most recent call first):
+  cmake/dependencies/CMakeLists.txt:142 (INCLUDE)
+
+
+-- Using AJA:          17.6.0.hotfix1
+-- Using atomic_ops:   7.10.0
+-- Using Boost:        1.85.0
+-- Using Dav1d:        1.5.3
+-- Using FFMPEG:       n8.0
+-- Using atomic_ops:   7.10.0
+-- Using Imath:        3.1.12
+-- Using JpegTurbo:    2.1.4
+-- Using OpenEXR:      3.3.6
+-- Using OpenColorIO   2.4.2
+-- Using OpenImageIO   3.1.12.0
+-- Using OpenJpeg:     2.5.4
+-- Using OpenJPH:      0.23.1
+-- Using OpenSSL:      3.6.2
+-- Using PCRE2:        10.47
+-- Using PNG:          1.6.55
+-- Using Python3:      3.11.9
+-- Using PySide:       6.5.3
+-- Using Qt:           6.5.3
+-- Using Raw:          0.22.0
+-- Using Tiff:         4.7.1
+-- Using WebP:         1.6.0
+-- Using Yaml-CPP:     0.7.0 (Using OCIO's own copy)
+-- Using zlib:         1.3.1
+-- Using spdlog:       1.11.0
+-- Using Breakpad:     v2024.02.16
+-- Could NOT find NDI_SDK (missing: NDI_SDK_INCLUDE_DIR NDI_SDK_LIBRARY)
+CMake Warning at src/plugins/output/NDI/CMakeLists.txt:27 (MESSAGE):
+  NDI SDK not found, disabling NDI output plugin.
+
+  Download the NDI SDK to add NDI output capability to Open RV (optional):
+  https://ndi.video/.  Set the NDI_SDK_ROOT environment variable to the root
+  of the NDI SDK installation if the NDI SDK fails to be automatically
+  located.
+
+  [snip]
+
+-- Adding SCRIPT C:/msys64/home/myuser/OpenRV/cmake/install/pre_install.cmake to INSTALL
+-- Adding SCRIPT C:/msys64/home/myuser/OpenRV/cmake/install/pre_install_windows.cmake to INSTALL
+-- Adding SCRIPT C:/msys64/home/myuser/OpenRV/cmake/install/install_darwin.cmake to INSTALL
+-- Adding SCRIPT C:/msys64/home/myuser/OpenRV/cmake/install/post_install.cmake to INSTALL
+-- Adding SCRIPT C:/msys64/home/myuser/OpenRV/cmake/install/post_install_windows.cmake to INSTALL
+-- Configuring done (89.3s)
+-- Generating done (6.5s)
+-- Build files have been written to: C:/msys64/home/myuser/OpenRV/_build
+rel (.venv)
+myuser@WIN-KGE66T5S248 MINGW64 ~/OpenRV
+#
+
+
+=== rvbootstrap ===
+
+myuser@WIN-KGE66T5S248 MINGW64 ~/OpenRV
+# rvbootstrap
+Change Dir: 'C:/msys64/home/myuser/OpenRV/_build'
+
+Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" main_executable.vcxproj /p:Configuration=Release /p:Platform=x64 /p:VisualStudioVersion=17.0 /m:6 /v:n
+MSBuild version 17.14.51+25f168cee for .NET Framework
+Build started 7/16/2026 12:58:11 PM.
+
+     1>Project "C:\msys64\home\myuser\OpenRV\_build\main_executable.vcxproj" on node 1 (default targets).
+     1>Project "C:\msys64\home\myuser\OpenRV\_build\main_executable.vcxproj" (1) is building "C:\msys64\home\myuser\OpenRV\_build\ZERO_CHECK.vcxproj" (2) on node 1 (default targets).
+     2>PrepareForBuild:
+  [snip]
+       CustomBuild:
+         1>Checking Build System
+  [snip]
+
+         C:\msys64\home\myuser\OpenRV\src\lib\app\PyMediaLibrary\PyRootNode.cpp(74,56): warning C4805: '&=': unsafe mix of type 'bool' and type 'int' in operation [C:\msys64\home\myuser\OpenRV\_build\src\lib\app\PyMediaLibrary\PyMediaLibrary.vcxproj]
+         C:\msys64\home\myuser\OpenRV\src\lib\app\PyMediaLibrary\PyRootNode.cpp(74,56): warning C4805: '&': unsafe mix of type 'bool' and type 'int' in operation [C:\msys64\home\myuser\OpenRV\_build\src\lib\app\PyMediaLibrary\PyMediaLibrary.vcxproj]
+
+    3413 Warning(s)
+    0 Error(s)
+
+Time Elapsed 01:34:03.77
+
+
+
+
+=== rvinst ===
+
+myuser@WIN-KGE66T5S248 MINGW64 ~/OpenRV
+# rvinst
+
+  [snip]
+-- 55% -- Installing C:/msys64/home/myuser/OpenRV/_install/lib/site-packages/PySide6/pyside6qml.abi3.dll
+-- 55% -- Skipping       C:/msys64/home/myuser/OpenRV/_build/stage/app/lib/site-packages/PySide6/pyside6qml.abi3.lib
+  [snip]
+-- 99% -- Installing C:/msys64/home/myuser/OpenRV/_install/translations/qtwebsockets_ru.qm
+-- 100% -- Installing C:/msys64/home/myuser/OpenRV/_install/translations/qtwebsockets_uk.qm
+-- Double checking installed files...
+rel (.venv)
+myuser@WIN-KGE66T5S248 MINGW64 ~/OpenRV
+#
+
