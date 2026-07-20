@@ -5,7 +5,7 @@ export QT_HOME=/c/Qt/6.5.3/msvc2019_64
 export CMAKE_PREFIX_PATH=/c/Qt/6.5.3/msvc2019_64
 export ACLOCAL_PATH=/c/msys64/usr/share/aclocal
 
-export PATH="/c/Program Files/CMake/bin:/c/Program Files/Python311:/c/Users/engineer/.cargo/bin:/c/msys64/mingw64/bin:/usr/bin:/c/Strawberry/perl/bin:$QT_HOME/bin:$PATH"
+export PATH="/c/Program Files/CMake/bin:/c/Program Files/Python311:/c/Users/myuser/.cargo/bin:/c/msys64/mingw64/bin:/usr/bin:/c/Strawberry/perl/bin:$QT_HOME/bin:$PATH"
 
 export PATH="/c/program files (x86)/microsoft visual studio/2022/buildtools/VC/Tools/MSVC/14.40.33807/bin/HostX64/x64:$PATH"
 
