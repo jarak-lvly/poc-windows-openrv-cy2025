@@ -2,11 +2,14 @@
 
 ## TL;DR:
 
+This repository documents a proof of concept for building OpenRV CY2025 for Windows from a Linux host using Windows running inside a Docker container.
+
+Or
+
 It's like a taco wrapped in "guacamolito", wrapped in a pizza:  running Windows inside QEMU, inside a Linux Docker container… so I can run windows in docker and build OpenRV.
 
 The actual build instructions are located in the `docs/` directory. This README provides an overview of the project and its design. 
 
-For the tested software versions and environment used to validate this proof of concept, see `docs/04.notes.md`.
 
 ## My goals:
 
@@ -32,6 +35,7 @@ This proof of concept is primarily intended for users who:
 - Reproducible build environment
 
 This repository documents a proof of concept for building OpenRV CY2025 inside a Windows Docker container from a Linux host. The goal is to allow Linux users who do not have a dedicated Windows workstation/vm to create a repeatable Windows build environment for OpenRV development and testing.
+
 
 ## What this project is NOT
 
@@ -89,7 +93,6 @@ poc-windows-openrv-cy2025/
 │   │   └── install-qt.ps1  
 │   └── windows  
 └── shared
-
 ```
 
 ## Repository layout
@@ -100,12 +103,13 @@ poc-windows-openrv-cy2025/
 | shared | Shared directory used to transfer the Qt zip between the two Windows containers. |
 | openrv-build | Windows development environment used to build OpenRV. |
 
-### Note:
+### Notes:
 
 The contents of the `oem/` directory are copied into the Windows VM and executed during the initial setup.
 
-The Qt installer is a GUI application. Connect to the Windows desktop using either the built-in browser console or RDP.  See docs for more info.
+The Qt installer is a GUI application. Connect to the Windows desktop using either the built-in browser console or RDP.  See `docs/01.qt-prereq.md` for more info.
 
+For the tested software versions and environment used to validate this proof of concept, see `docs/04.notes.md`.
 
 ## Two-container workflow (overview)
 
@@ -146,7 +150,7 @@ OpenRV Build Container
  Build OpenRV
 ```
 
-Container 2 is then ready for YOU to build OpenRV.  Please see [Building Open RV](https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html#building-open-rv) documentation.
+At this point, Container 2 (the Windows build environment) is ready. This proof of concept prepares the build environment but does not automatically build OpenRV. Continue with the official OpenRV documentation: [Building Open RV](https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html#building-open-rv)
 
 ## Why Docker
 
