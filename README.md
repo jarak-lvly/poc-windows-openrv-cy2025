@@ -1,12 +1,14 @@
 # PoC: OpenRV CY2025 Windows Build via Docker
 
-# TL;DR:
+## TL;DR:
 
-It's like a taco wrapped in “guacamolito”, wrapped in a pizza:  running Windows inside QEMU, inside a Linux Docker container… so I can run windows in docker and build openRV.
+It's like a taco wrapped in "guacamolito", wrapped in a pizza:  running Windows inside QEMU, inside a Linux Docker container… so I can run windows in docker and build OpenRV.
 
 The actual build instructions are located in the `docs/` directory. This README provides an overview of the project and its design. 
 
-# My goals:
+For the tested software versions and environment used to validate this proof of concept, see `docs/04.notes.md`.
+
+## My goals:
 
 1. This is a proof of concept, not a supported build environment.  
 2. This is documentation, not a redistribution of OpenRV or its dependencies.  
@@ -88,7 +90,6 @@ poc-windows-openrv-cy2025/
 │   └── windows  
 └── shared
 
-8 directories, 9 files
 ```
 
 ## Repository layout
@@ -147,6 +148,7 @@ OpenRV Build Container
 
 Container 2 is then ready for YOU to build OpenRV.  Please see [Building Open RV](https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html#building-open-rv) documentation.
 
+`docs/openrv-build-example-output.txt`:  Example console output from a successful OpenRV build. Provided as a reference for the general build flow and expected successful completion.
 
 ## Why Docker
 
