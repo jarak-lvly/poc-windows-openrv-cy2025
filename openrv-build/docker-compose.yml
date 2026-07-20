@@ -5,9 +5,9 @@ services:
     environment:
       VERSION: "11"
       USERNAME: "myuser"  # CHANGE THIS before running
-      PASSWORD: "supersecretpassword"  # CHANGE THIS before running
+      PASSWORD: "mysupersecretpassword"  # CHANGE THIS before running
       CPU_CORES: "6"
-      RAM_SIZE: "24"
+      RAM_SIZE: "24G"
       DISK_SIZE: "80G"
     devices:
       - /dev/kvm
