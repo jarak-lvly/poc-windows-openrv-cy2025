@@ -1,4 +1,4 @@
-# Docker Windows Build Setup for OpenRV CY2025 (Windows)
+# PoC: OpenRV CY2025 Windows Build via Docker
 
 # TL;DR:
 
