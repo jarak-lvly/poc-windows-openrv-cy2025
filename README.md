@@ -238,7 +238,7 @@ https://github.com/dockur/windows
 
 https://github.com/AcademySoftwareFoundation/OpenRV
 
-https://aswf-openrv.readthedocs.io/en/latest/build\_system/config\_common\_build.html
+https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html
 
 https://docs.docker.com/reference/
 
