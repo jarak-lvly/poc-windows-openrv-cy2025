@@ -273,16 +273,20 @@ Build started 7/16/2026 12:58:11 PM.
 Time Elapsed 01:34:03.77
 
 
+✓ Build completed successfully!
+rel (.venv)
+engineer@WIN-5DEQS5OO5M4 MINGW64 ~/OpenRV
+#
+
 
 
 === rvinst ===
 
 myuser@WIN-KGE66T5S248 MINGW64 ~/OpenRV
 # rvinst
-
-  [snip]
--- 55% -- Installing C:/msys64/home/myuser/OpenRV/_install/lib/site-packages/PySide6/pyside6qml.abi3.dll
--- 55% -- Skipping       C:/msys64/home/myuser/OpenRV/_build/stage/app/lib/site-packages/PySide6/pyside6qml.abi3.lib
+-- Install prefix: "C:/msys64/home/myuser/OpenRV/_install"
+-- 0% -- Skipping        C:/msys64/home/myuser/OpenRV/_build/stage/app/DLLs/_asyncio.pdb
+-- 0% -- Installing C:/msys64/home/myuser/OpenRV/_install/DLLs/_asyncio.pyd
   [snip]
 -- 99% -- Installing C:/msys64/home/myuser/OpenRV/_install/translations/qtwebsockets_ru.qm
 -- 100% -- Installing C:/msys64/home/myuser/OpenRV/_install/translations/qtwebsockets_uk.qm
