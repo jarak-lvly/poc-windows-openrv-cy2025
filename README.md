@@ -42,7 +42,7 @@ This repository documents a proof of concept for building OpenRV CY2025 inside a
 This repository is not
 
 - an official OpenRV build environment  
-- Official Windows build environment  
+- an official Windows build environment  
 - a replacement for the OpenRV documentation  
 - a source of prebuilt OpenRV binaries  
 - a redistribution of Autodesk, Qt, Visual Studio, or other third-party software  
@@ -107,7 +107,7 @@ Linux host
     └── Linux container  
         └── QEMU virtual machine  
             └── Windows  
-                └── Qt installation or OpenRV build
+                └── OpenRV build
 ```
 
 Docker manages the surrounding Linux container, including its storage mounts, networking, configuration, and lifecycle. Inside that container, QEMU provides the virtual computer on which Windows is installed.
@@ -117,7 +117,7 @@ Therefore, Windows is technically a **virtual machine managed from within a Dock
 
 ## Before you begin
 
-Detailed setup instructions for the Qt prerequisite container and the OpenRV build container are available under the `docs/` directory. 
+Detailed instructions for creating the Windows build environment and building OpenRV are available under the `docs/` directory.
 
 This proof of concept **does not eliminate the need for Windows.** It automates the creation of a reproducible Windows build environment using Docker, but an initial Windows setup is still required.
 
