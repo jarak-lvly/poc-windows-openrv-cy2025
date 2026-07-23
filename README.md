@@ -50,107 +50,34 @@ This repository is not
 
 
 # Workflow at a glance
-```
-        Stage 1                      Stage 2
 
-+----------------------+      +----------------------+
-|      qt-prereq       | ---> |    openrv-build      |
-|----------------------|      |----------------------|
-| Install Qt           |      | Extract Qt zip       |
-| Export Qt zip        |      | Build OpenRV         |
-+----------------------+      +----------------------+
-           \                         /
-            \                       /
-             +---------------------+
-             |       shared        |
-             +---------------------+
-```
+1. Build the OpenRV windows container
+2. The build script installs all prerequisites, including Qt 6.5.3 via aqtinstall
+3. Connect to Windows using the browser console or RDP
+4. Build OpenRV
 
-1. Build the Qt prerequisite container
-2. Connect to Windows using the browser console or RDP
-3. Install Qt
-4. Export the Qt zip to “shared”.  Do not delete “shared” in step 5.
-5. Manually delete the temp Qt container
-6. Build the OpenRV container
-7. Build OpenRV
 
 ## Directory tree
 ```
-poc-windows-openrv-cy2025/  
-├── openrv-build  
-│   ├── docker-compose.yml  
-│   ├── oem  
-│   │   ├── install.bat  
-│   │   ├── install-openrv-cy2025.ps1  
-│   │   ├── msys2-packages.txt  
-│   │   └── openrv-cy2025.vsconfig  
-│   └── win11  
-├── qt-prereq  
-│   ├── docker-compose.yml  
-│   ├── oem  
-│   │   ├── export-qt.ps1  
-│   │   ├── install.bat  
-│   │   └── install-qt.ps1  
-│   └── windows  
-└── shared
+poc-windows-openrv-cy2025/
+└── openrv-build/
+    ├── docker-compose.yml
+    ├── oem/
+    │   ├── install.bat
+    │   ├── install-openrv-cy2025.ps1
+    │   ├── msys2-packages.txt
+    │   └── openrv-cy2025.vsconfig
+    └── win11/
 ```
 
-## Repository layout
-
-| Directory | Purpose |
-| ----- | ----- |
-| qt-prereq | Temporary Windows VM used to install Qt and create the Qt zip archive. |
-| shared | Shared directory used to transfer the Qt zip between the two Windows containers. |
-| openrv-build | Windows development environment used to build OpenRV. |
 
 ### Notes:
 
 The contents of the `oem/` directory are copied into the Windows VM and executed during the initial setup.
 
-The Qt installer is a GUI application. Connect to the Windows desktop using either the built-in browser console or RDP.  See `docs/01.qt-prereq.md` for more info.
-
 For the tested software versions and environment used to validate this proof of concept, see `docs/04.notes.md`.
 
-## Two-container workflow (overview)
-
-### Container 1
-
-**Qt preparation**
-
-Purpose:
-
-- install Qt  
-- login  
-- accept license  
-- zip Qt directory  
-- throw container away
-
-### Container 2
-
-**OpenRV build**
-
-Purpose:
-
-- install build tools  
-- unpack Qt zip  
-- build OpenRV
-
-Simple flow:
-
-```
-Qt Container  
-      │  
-      ▼  
- Qt zip archive  
-      │  
-      ▼  
-OpenRV Build Container  
-      │  
-      ▼  
- Build OpenRV
-```
-
-At this point, Container 2 (the Windows build environment) is ready. This proof of concept prepares the build environment but does not automatically build OpenRV. Continue with the official OpenRV documentation: [Building Open RV](https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html#building-open-rv)
+This proof of concept prepares the build environment but does not automatically build OpenRV. Continue with the official OpenRV documentation: [Building Open RV](https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html#building-open-rv)
 
 ## Why Docker
 
@@ -195,17 +122,9 @@ Detailed setup instructions for the Qt prerequisite container and the OpenRV bui
 This proof of concept **does not eliminate the need for Windows.** It automates the creation of a reproducible Windows build environment using Docker, but an initial Windows setup is still required.
 
 
-## Why Qt is packaged as a zip
+## Why Qt is installed using aqtinstall
 
-- Create your own zip file from your own local Qt open source installation.  
-- Users are responsible for obtaining Qt themselves under the appropriate license.  
-- This repository does not provide a Qt archive or automate acceptance of Qt’s license terms.
-
-Each user must obtain Qt directly from the official Qt installer, authenticate as required, review the applicable license terms, and create the zip archive from their own installation.
-
-The zip file is only a method of transferring the installed Qt directory from the temporary preparation container into the reproducible OpenRV build container. It is not a modified Qt distribution or a binary package supplied by this project.
-
-Only the expected archive layout and directory tree are documented in this repository. No Qt binaries are included.
+Qt is installed using aqtinstall, the same approach used by the Linux OpenRV build environment. This removes the requirement for an interactive Qt installer, making the Windows build fully reproducible and suitable for unattended Docker builds.
 
 
 ## Why no binaries

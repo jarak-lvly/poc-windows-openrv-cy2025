@@ -163,29 +163,85 @@ if (Test-Path $sccacheDest) {
     Write-Host "Installed sccache to $sccacheDest"
 }
 
-# 9. Qt
-$qtArchive = Join-Path $env:USERPROFILE "Desktop\Shared\qt-6.5.3-msvc2019_64.zip"
+# 9. Qt 6.5.3 (aqtinstall)
+#
+# This replaces the separate interactive Qt prerequisite container. The module
+# list matches the components selected in the original Qt Online Installer and
+# explicitly includes dependencies that the GUI installer selected
+# automatically for Qt Quick 3D and Qt WebEngine.
+$aqtVersion = "3.3.0"
+$qtVersion = "6.5.3"
+$qtArch = "win64_msvc2019_64"
+$qtRoot = "C:\Qt"
+$qtDest = Join-Path $qtRoot "$qtVersion\msvc2019_64"
 
-if (-not (Test-Path -LiteralPath $qtArchive)) {
-    Write-Warning "Qt archive not found: $qtArchive"
-} else {
-    Write-Host "Using Qt archive: $qtArchive"
-}
-
-$qtDest = "C:\Qt\6.5.3\msvc2019_64"
+$qtModules = @(
+    "qtquick3d",
+    "qtshadertools",
+    "qtcharts",
+    "qtdatavis3d",
+    "qtimageformats",
+    "qtmultimedia",
+    "qtnetworkauth",
+    "qtpositioning",
+    "qtvirtualkeyboard",
+    "qtwebchannel",
+    "qtwebengine",
+    "qtwebsockets",
+    "qtquicktimeline"
+)
 
 if (Test-Path "$qtDest\bin\qmake.exe") {
     Write-Host "Qt already installed at $qtDest; skipping."
-}
-elseif (Test-Path $qtArchive) {
-    New-Item -ItemType Directory -Force "C:\Qt\6.5.3" | Out-Null
-    Expand-Archive $qtArchive -DestinationPath "C:\Qt\6.5.3" -Force
-
-    if (!(Test-Path "$qtDest\bin\qmake.exe")) {
-        throw "Qt extraction failed. Expected: $qtDest\bin\qmake.exe"
-    }
 } else {
-    Write-Warning "Qt archive not found: $qtArchive"
+    Write-Host "Installing aqtinstall $aqtVersion"
+
+    & "$pythonRoot\python.exe" -m pip install --upgrade pip
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to upgrade pip"
+    }
+
+    & "$pythonRoot\python.exe" -m pip install "aqtinstall==$aqtVersion"
+    if ($LASTEXITCODE -ne 0) {
+        throw "Failed to install aqtinstall $aqtVersion"
+    }
+
+    New-Item -ItemType Directory -Force $qtRoot | Out-Null
+
+    $aqtArguments = @(
+        "-m", "aqt",
+        "install-qt",
+        "windows", "desktop",
+        $qtVersion,
+        $qtArch,
+        "-O", $qtRoot,
+        "-m"
+    ) + $qtModules
+
+    Write-Host "Installing Qt $qtVersion ($qtArch) to $qtRoot"
+    Write-Host "Qt modules: $($qtModules -join ', ')"
+
+    $qtInstalled = $false
+    for ($attempt = 1; $attempt -le 3; $attempt++) {
+        Write-Host "aqtinstall attempt $attempt of 3"
+        & "$pythonRoot\python.exe" @aqtArguments
+
+        if (($LASTEXITCODE -eq 0) -and (Test-Path "$qtDest\bin\qmake.exe")) {
+            $qtInstalled = $true
+            break
+        }
+
+        Write-Warning "Qt installation attempt $attempt failed with exit code $LASTEXITCODE"
+        if ($attempt -lt 3) {
+            Start-Sleep -Seconds 15
+        }
+    }
+
+    if (-not $qtInstalled) {
+        throw "Qt installation failed. Expected: $qtDest\bin\qmake.exe"
+    }
+
+    Write-Host "Installed Qt to $qtDest"
 }
 
 # 10. jom
