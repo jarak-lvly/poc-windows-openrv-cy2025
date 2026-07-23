@@ -60,14 +60,15 @@ This repository is not
 ## Directory tree
 ```
 poc-windows-openrv-cy2025/
-└── openrv-build/
-    ├── docker-compose.yml
-    ├── oem/
-    │   ├── install.bat
-    │   ├── install-openrv-cy2025.ps1
-    │   ├── msys2-packages.txt
-    │   └── openrv-cy2025.vsconfig
-    └── win11/
+├── openrv-build
+│   ├── docker-compose.yml
+│   ├── oem
+│   │   ├── install.bat
+│   │   ├── install-openrv-cy2025.ps1
+│   │   ├── msys2-packages.txt
+│   │   └── openrv-cy2025.vsconfig
+│   └── win11
+└── shared
 ```
 
 
