@@ -49,7 +49,7 @@ This repository is not
 - intended to replace Windows testing
 
 
-# Workflow at a glance
+## Workflow at a glance
 
 1. Build and start the Windows build container.
 2. The setup script automatically installs all prerequisites, including Qt 6.5.3 via aqtinstall.
@@ -128,8 +128,6 @@ Qt is installed using aqtinstall, the same approach used by the Linux OpenRV bui
 
 
 ## Why no binaries
-
-### Why aren't there any binaries?
 
 This project intentionally does not provide:
 
