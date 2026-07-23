@@ -25,7 +25,7 @@ This proof of concept is primarily intended for users who:
 - normally work on Linux  
 - need to build the Windows version of OpenRV  
 - want a reproducible build environment  
-- do not want to maintain a dedicated Windows development workstation/vm
+- do not want to maintain a dedicated Windows development workstation
 
 ## What this project is
 
@@ -34,7 +34,7 @@ This proof of concept is primarily intended for users who:
 - Docker Compose files  
 - Reproducible build environment
 
-This repository documents a proof of concept for building OpenRV CY2025 inside a Windows Docker container from a Linux host. The goal is to allow Linux users who do not have a dedicated Windows workstation/vm to create a repeatable Windows build environment for OpenRV development and testing.
+This repository documents a proof of concept for building OpenRV CY2025 inside a Windows Docker container from a Linux host. The goal is to allow Linux users who do not have a dedicated Windows workstation to create a repeatable Windows build environment for OpenRV development and testing.
 
 
 ## What this project is NOT
@@ -75,7 +75,7 @@ poc-windows-openrv-cy2025/
 
 The contents of the `oem/` directory are copied into the Windows environment and executed during the initial setup.
 
-For the tested software versions and environment used to validate this proof of concept, see `docs/04.notes.md`.
+For the tested software versions and environment used to validate this proof of concept, see `docs/03.notes.md`.
 
 This proof of concept prepares the build environment but does not automatically build OpenRV. Continue with the official OpenRV documentation: [Building Open RV](https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html#building-open-rv)
 
@@ -90,7 +90,7 @@ Advantages
 - infrastructure as code  
 - easy rebuild after dependency changes  
 - version-controlled build scripts  
-- no long-lived Windows development VM to maintain
+- no long-lived Windows development workstation to maintain
 
 
 ## Why is this called "Windows in Docker"
