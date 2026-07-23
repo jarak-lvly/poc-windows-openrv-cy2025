@@ -6,7 +6,7 @@ This repository documents a proof of concept for building OpenRV CY2025 for Wind
 
 Or
 
-It's like a taco wrapped in "guacamolito", wrapped in a pizza:  running Windows inside QEMU, inside a Linux Docker container… so I can run windows in docker and build OpenRV.
+It's like a taco wrapped in "guacamolito", wrapped in a pizza:  running Windows inside QEMU, inside a Linux Docker container… so I can run Windows in Docker and build OpenRV.
 
 The actual build instructions are located in the `docs/` directory. This README provides an overview of the project and its design. 
 
@@ -34,7 +34,7 @@ This proof of concept is primarily intended for users who:
 - Docker Compose files  
 - Reproducible build environment
 
-This repository documents a proof of concept for building OpenRV CY2025 inside a Windows Docker container from a Linux host. The goal is to allow Linux users who do not have a dedicated Windows workstation to create a repeatable Windows build environment for OpenRV development and testing.
+This repository documents a proof of concept for building OpenRV CY2025 on Windows from a Linux host using a Windows build container.  The goal is to allow Linux users who do not have a dedicated Windows workstation to create a reproducible Windows build environment for OpenRV development and testing.
 
 
 ## What this project is NOT
@@ -51,7 +51,7 @@ This repository is not
 
 # Workflow at a glance
 
-1. Build and start the Windows Docker container.
+1. Build and start the Windows build container.
 2. The setup script automatically installs all prerequisites, including Qt 6.5.3 via aqtinstall.
 3. Connect to the Windows desktop using the browser console or Remote Desktop (RDP).
 4. Build OpenRV.
@@ -81,7 +81,7 @@ This proof of concept prepares the build environment but does not automatically 
 
 ## Why Docker
 
-*"Why not just use a VM?"*  You can; initially I did:  VMWare, XCP-NG, Hyper-V.  But I wanted to try it out in docker.  VMs have the same advantages, albeit without the extra (not special) sauce.
+*"Why not just use a VM?"*  You can; initially I did:  VMware, XCP-NG, Hyper-V.  But I wanted to try it out in Docker.  VMs have the same advantages, albeit without the extra (not special) sauce.
 
 Advantages
 
@@ -144,7 +144,7 @@ The intent is to document a reproducible build process rather than redistribute 
 
 ## Limitations
 
-Current limitations
+Current limitations:
 
 - GUI testing must still be performed on Windows with graphics.  
 - This is not an officially supported OpenRV build environment.  
@@ -153,15 +153,15 @@ Current limitations
 
 ## References
 
-https://github.com/dockur/windows
+- https://github.com/dockur/windows
 
-https://github.com/AcademySoftwareFoundation/OpenRV
+- https://github.com/AcademySoftwareFoundation/OpenRV
 
-https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html
+- https://aswf-openrv.readthedocs.io/en/latest/build_system/config_common_build.html
 
-https://docs.docker.com/reference/
+- https://docs.docker.com/reference/
 
-https://doc.qt.io/qt-6.5/get-and-install-qt.html
+- https://doc.qt.io/qt-6.5/get-and-install-qt.html
 
 
 ## Licensing
