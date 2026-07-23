@@ -51,10 +51,10 @@ This repository is not
 
 # Workflow at a glance
 
-1. Build the OpenRV windows container
-2. The build script installs all prerequisites, including Qt 6.5.3 via aqtinstall
-3. Connect to Windows using the browser console or RDP
-4. Build OpenRV
+1. Build and start the Windows Docker container.
+2. The setup script automatically installs all prerequisites, including Qt 6.5.3 via aqtinstall.
+3. Connect to the Windows desktop using the browser console or Remote Desktop (RDP).
+4. Build OpenRV.
 
 
 ## Directory tree
@@ -73,7 +73,7 @@ poc-windows-openrv-cy2025/
 
 ### Notes:
 
-The contents of the `oem/` directory are copied into the Windows VM and executed during the initial setup.
+The contents of the `oem/` directory are copied into the Windows environment and executed during the initial setup.
 
 For the tested software versions and environment used to validate this proof of concept, see `docs/04.notes.md`.
 
