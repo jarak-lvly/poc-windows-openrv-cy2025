@@ -21,6 +21,7 @@ services:
     volumes:
       - ./win11:/storage
       - ./oem:/oem
+      - ../shared:/shared
     restart: always
     stop_grace_period: 2m
 

@@ -34,7 +34,7 @@ This proof of concept is primarily intended for users who:
 - Docker Compose files  
 - Reproducible build environment
 
-This repository documents a proof of concept for building OpenRV CY2025 on Windows from a Linux host using a Windows build container.  The goal is to allow Linux users who do not have a dedicated Windows workstation to create a reproducible Windows build environment for OpenRV development and testing.
+This repository documents a proof of concept for building OpenRV CY2025 on Windows from a Linux host using a Windows build container. The goal is to allow Linux users who do not have a dedicated Windows workstation to create a reproducible Windows build environment for building OpenRV.
 
 
 ## What this project is NOT
